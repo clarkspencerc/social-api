@@ -26,7 +26,7 @@ const UserSchema = new Schema({
             ref: 'Thought'
         }
     ],
-    friends: [FriendSchema]
+    //friends: [FriendSchema]
 
 }, 
 {
@@ -36,9 +36,9 @@ const UserSchema = new Schema({
 }
 ); 
 
-CommentSchema.virutal('friendCount').get(function() {
-    return this.friends.length;
-}); 
+// CommentSchema.virutal('friendCount').get(function() {
+//     return this.friends.length;
+// }); 
 
 const User = model('User', UserSchema);
 
