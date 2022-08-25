@@ -26,7 +26,12 @@ const UserSchema = new Schema({
             ref: 'Thought'
         }
     ],
-    //friends: [FriendSchema]
+    friends: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ]
 
 }, 
 {
@@ -37,29 +42,11 @@ const UserSchema = new Schema({
 }
 ); 
 
-// CommentSchema.virutal('friendCount').get(function() {
-//     return this.friends.length;
-// }); 
+UserSchema.virtual('friendCount').get(function() {
+    return this.friends.length;
+}); 
 
 const User = model('User', UserSchema);
 
 module.exports = User; 
 
-// username
-
-// String
-// Unique
-// Required
-// Trimmed
-// email
-
-// String
-// Required
-// Unique
-// Must match a valid email address(look into Mongoose's matching validation)
-// thoughts
-
-// Array of _id values referencing the Thought model
-// friends
-
-// Array of _id values referencing the User model(self - reference)

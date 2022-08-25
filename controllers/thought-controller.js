@@ -93,7 +93,6 @@ const thoughtController = {
                 res.json(dbUserData); 
             })
             .catch(err => res.json(err)); 
-
         }, 
     addReaction({ params, body}, res){
         Thought.findOneAndUpdate(
